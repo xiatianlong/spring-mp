@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.spring_mp.order.mapper.TOrderMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="TOrder">
+        <result column="id" property="id"/>
+        <result column="data_status" property="dataStatus"/>
+        <result column="created_date" property="createdDate"/>
+        <result column="updated_date" property="updatedDate"/>
+        <result column="order_no" property="orderNo"/>
+        <result column="pay_amount" property="payAmount"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="baseJoinMap">
+        ,
+        ${prefix}
+        .
+        id
+        as
+        ${prefix}
+        _
+        id
+        ,
+        ${prefix}
+        .
+        data_status
+        as
+        ${prefix}
+        _
+        data_status
+        ,
+        ${prefix}
+        .
+        created_date
+        as
+        ${prefix}
+        _
+        created_date
+        ,
+        ${prefix}
+        .
+        updated_date
+        as
+        ${prefix}
+        _
+        updated_date
+        ,
+        ${prefix}
+        .
+        order_no
+        as
+        ${prefix}
+        _
+        order_no
+        ,
+        ${prefix}
+        .
+        pay_amount
+        as
+        ${prefix}
+        _
+        pay_amount
+    </sql>
+
+    <resultMap id="orderResult" type="TOrder" extends="BaseResultMap">
+        <collection property="orderItemEntityList"
+                    resultMap="com.example.spring_mp.order.mapper.TOrderItemMapper.BaseResultMap" columnPrefix="oi_"/>
+    </resultMap>
+
+
+    <select id="getOrder" resultMap="orderResult">
+        select o.*
+        <if test="loadItem">
+            <include refid="com.example.spring_mp.order.mapper.TOrderItemMapper.baseJoinMap">
+                <property name="prefix" value="oi"/>
+            </include>
+        </if>
+        from t_order o
+        <if test="loadItem">
+            left join t_order_item oi on oi.order_id = o.id
+        </if>
+        where o.data_status = 1
+        <if test="id != null">and o.id = #{id}</if>
+        <if test="orderNo != null">and o.order_no = #{orderNo}</if>
+    </select>
+
+    <select id="loadOrder" resultMap="orderResult">
+        select o.*
+        <if test="loadItem">
+            <include refid="com.example.spring_mp.order.mapper.TOrderItemMapper.baseJoinMap">
+                <property name="prefix" value="oi"/>
+            </include>
+        </if>
+        from t_order o
+        <if test="loadItem">
+            left join t_order_item oi on oi.order_id = o.id
+        </if>
+        where o.data_status = 1
+        <if test="id != null">and o.id = #{id}</if>
+        <if test="orderNo != null">and o.order_no = #{orderNo}</if>
+    </select>
+</mapper>

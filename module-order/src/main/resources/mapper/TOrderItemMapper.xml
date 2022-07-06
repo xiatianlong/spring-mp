@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.spring_mp.order.mapper.TOrderItemMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="TOrderItem">
+        <result column="id" property="id"/>
+        <result column="data_status" property="dataStatus"/>
+        <result column="created_date" property="createdDate"/>
+        <result column="updated_date" property="updatedDate"/>
+        <result column="order_id" property="orderId"/>
+        <result column="product_name" property="productName"/>
+        <result column="product_count" property="productCount"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="baseJoinMap">
+        ,
+        ${prefix}
+        .
+        id
+        as
+        ${prefix}
+        _
+        id
+        ,
+        ${prefix}
+        .
+        data_status
+        as
+        ${prefix}
+        _
+        data_status
+        ,
+        ${prefix}
+        .
+        created_date
+        as
+        ${prefix}
+        _
+        created_date
+        ,
+        ${prefix}
+        .
+        updated_date
+        as
+        ${prefix}
+        _
+        updated_date
+        ,
+        ${prefix}
+        .
+        order_id
+        as
+        ${prefix}
+        _
+        order_id
+        ,
+        ${prefix}
+        .
+        product_name
+        as
+        ${prefix}
+        _
+        product_name
+        ,
+        ${prefix}
+        .
+        product_count
+        as
+        ${prefix}
+        _
+        product_count
+    </sql>
+
+</mapper>
