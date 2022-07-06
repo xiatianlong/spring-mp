@@ -29,7 +29,7 @@
 3. 关于mybatisd的DB操作的使用方法可参考`module-order`模块下的测试用例
 4. 关于`quartz`的使用方法
    1. 在数据库`t_job`表中添加任务记录
-   2. 在`module-task`模块的job包中参照`TestTask`即可
+   2. 在`module-task`模块的job包中参照`TestTask`即可。
 
 
 
