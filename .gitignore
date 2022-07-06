@@ -1,0 +1,5 @@
+# Project exclude paths
+/module-common/target/
+/module-main/target/
+/module-order/target/
+/module-task/target/

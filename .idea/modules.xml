@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/module-common/module-common.iml" filepath="$PROJECT_DIR$/module-common/module-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module-main/module-main.iml" filepath="$PROJECT_DIR$/module-main/module-main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module-order/module-order.iml" filepath="$PROJECT_DIR$/module-order/module-order.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module-task/module-task.iml" filepath="$PROJECT_DIR$/module-task/module-task.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-mp.iml" filepath="$PROJECT_DIR$/spring-mp.iml" />
+    </modules>
+  </component>
+</project>
